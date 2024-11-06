@@ -1,0 +1,123 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CustomQuiz
+{
+    public partial class Form1 : Form
+    {
+        // quiz game variables
+        int correctAnswer;
+        int questionNumber = 1;
+        int score;
+        int percentage;
+        int totalQuestions;
+        public Form1()
+        {
+            InitializeComponent();
+            askQuestion(questionNumber);
+            totalQuestions = 8;
+        }
+        private void checkAnswerEvent(object sender, EventArgs e)
+        {
+            var senderObject = (Button)sender;
+            int buttonTag = Convert.ToInt32(senderObject.Tag);
+            if (buttonTag == correctAnswer)
+            {
+                score++;
+            }
+            if (questionNumber == totalQuestions)
+            {
+                // work out the percentage
+                percentage = (int)Math.Round((double)(score * 100) / totalQuestions);
+                MessageBox.Show(
+                    "Quiz Ended!" + Environment.NewLine +
+                    "You have answered " + score + " questions correctly." + Environment.NewLine +
+                    "Your total percentage is " + percentage + "%" + Environment.NewLine +
+                    "Click OK to play again"
+                    );
+                score = 0;
+                questionNumber = 0;
+                askQuestion(questionNumber);
+            }
+            questionNumber++;
+            askQuestion(questionNumber);
+        }
+        private void askQuestion(int qnum)
+        {
+            switch (qnum)
+            {
+                case 1:
+                    lblQuestion.Text = "";
+                    button1.Text = "";
+                    button2.Text = "";
+                    button3.Text = "";
+                    button4.Text = "";
+                    correctAnswer = 1;
+                    break;
+                case 2:
+                    lblQuestion.Text = "";
+                    button1.Text = "";
+                    button2.Text = "";
+                    button3.Text = "";
+                    button4.Text = "";
+                    correctAnswer = 1;
+                    break;
+                case 3:
+                    lblQuestion.Text = "";
+                    button1.Text = "";
+                    button2.Text = "";
+                    button3.Text = "";
+                    button4.Text = "";
+                    correctAnswer = 1;
+                    break;
+                case 4:
+                    lblQuestion.Text = "";
+                    button1.Text = "";
+                    button2.Text = "";
+                    button3.Text = "";
+                    button4.Text = "";
+                    correctAnswer = 1;
+                    break;
+                case 5:
+                    lblQuestion.Text = "";
+                    button1.Text = "";
+                    button2.Text = "";
+                    button3.Text = "";
+                    button4.Text = "";
+                    correctAnswer = 1;
+                    break;
+                case 6:
+                    lblQuestion.Text = "";
+                    button1.Text = "";
+                    button2.Text = "";
+                    button3.Text = "";
+                    button4.Text = "";
+                    correctAnswer = 1;
+                    break;
+                case 7:
+                    lblQuestion.Text = "";
+                    button1.Text = "";
+                    button2.Text = "";
+                    button3.Text = "";
+                    button4.Text = "";
+                    correctAnswer = 1;
+                    break;
+                case 8:
+                    lblQuestion.Text = "";
+                    button1.Text = "";
+                    button2.Text = "";
+                    button3.Text = "";
+                    button4.Text = "";
+                    correctAnswer = 1;
+                    break;
+            }
+        }
+    }
+}
